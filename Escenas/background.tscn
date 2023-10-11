@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://c1pv0thm6y8vo"]
+
+[ext_resource type="Script" path="res://Scripts/Parallax.gd" id="1_cfkyx"]
+[ext_resource type="Texture2D" uid="uid://cutcbvufa2xg5" path="res://Assets/ParallaxMaps/far.png" id="1_sgpet"]
+[ext_resource type="Texture2D" uid="uid://bvy7en7impjed" path="res://Assets/ParallaxMaps/sand.png" id="2_dvsgv"]
+[ext_resource type="Texture2D" uid="uid://dui0jh5sl3m71" path="res://Assets/ParallaxMaps/foreground-1.png" id="3_riagj"]
+[ext_resource type="Texture2D" uid="uid://pohu303msk2x" path="res://Assets/ParallaxMaps/foreground-2.png" id="4_ilmpg"]
+
+[node name="Background" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+script = ExtResource("1_cfkyx")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-2, -5)
+motion_scale = Vector2(0.8, 0)
+motion_mirroring = Vector2(1280, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+scale = Vector2(6, 4)
+texture = ExtResource("1_sgpet")
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-2, -5)
+motion_scale = Vector2(0.6, 0)
+motion_mirroring = Vector2(1535, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+scale = Vector2(6, 4)
+texture = ExtResource("2_dvsgv")
+centered = false
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-2, -5)
+motion_scale = Vector2(0.4, 0)
+motion_mirroring = Vector2(1535, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+scale = Vector2(6, 4)
+texture = ExtResource("3_riagj")
+centered = false
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-2, -5)
+motion_scale = Vector2(0.2, 0)
+motion_mirroring = Vector2(1535, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+scale = Vector2(6, 4)
+texture = ExtResource("4_ilmpg")
+centered = false
