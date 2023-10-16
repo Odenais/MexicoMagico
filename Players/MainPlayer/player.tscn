@@ -17,7 +17,7 @@ signal change_position_request
 @onready var sprite := $Sprite2D
 @onready var piedrasLabel := $HBoxContainer/Label2
 
-
+	
 func _physics_process(delta):
 	direccion = Input.get_axis(\"ui_left\",\"ui_right\")
 	velocity.x = direccion * speed
@@ -46,11 +46,10 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	
-
-
 func _on_area_2d_body_entered(body):
 	velocity.y += velocity.x
 	move_and_slide()
+
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lr3sn"]

@@ -1,7 +1,7 @@
 extends Node
 class_name Menu
 @onready var transition = $Transicion
-@onready var mex = preload("res://Escenas/world.tscn")
+@onready var mex = preload("res://Escenas/Intro.tscn")
 
 var dir = Vector2(1,0)
 var speed = 60
