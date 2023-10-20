@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://y86hmq6nbmix"]
+[gd_scene load_steps=13 format=3 uid="uid://y86hmq6nbmix"]
 
 [ext_resource type="Script" path="res://Cena.gd" id="1_vidk0"]
 [ext_resource type="FontFile" uid="uid://bnask8uv41jbp" path="res://Assets/Fonts/opensans/OpenSans-MediumItalic.ttf" id="2_0o5bu"]
 [ext_resource type="PackedScene" uid="uid://cjsfetl2jnmio" path="res://Players/MainPlayer/player.tscn" id="2_yr3su"]
 [ext_resource type="PackedScene" uid="uid://tx41guim5u5b" path="res://Players/dino.tscn" id="4_41tfa"]
+[ext_resource type="FontFile" uid="uid://covt2bip852x7" path="res://Assets/Fonts/04b_30/04B_30__.TTF" id="5_0ff0j"]
 
 [sub_resource type="Animation" id="Animation_cjut3"]
 length = 15.0
@@ -42,6 +43,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(1415, 1138)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera2D/Control/Button:size")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(98, 68)]
 }
 
 [sub_resource type="Animation" id="Animation_1qrj1"]
@@ -124,74 +137,14 @@ _data = {
 
 [sub_resource type="Animation" id="Animation_5c7k1"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Transicion/ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 1)]
-}
 
 [sub_resource type="Animation" id="Animation_4lhmx"]
 resource_name = "fade_in"
 length = 0.7
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Transicion/ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.7),
-"transitions": PackedFloat32Array(1, 0.0185815),
-"update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Transicion/ColorRect:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.7),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="Animation" id="Animation_b2mwc"]
 resource_name = "fade_out"
 length = 0.7
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Transicion/ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.7),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Transicion/ColorRect:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nsh1a"]
 _data = {
@@ -217,6 +170,23 @@ color = Color(0.0627451, 0.0627451, 0.0627451, 1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(635, -200)
+
+[node name="Control" type="Control" parent="Camera2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -635.0
+offset_top = -361.0
+offset_right = -595.0
+offset_bottom = -321.0
+
+[node name="Button" type="Button" parent="Camera2D/Control"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 29.0
+offset_right = 127.0
+offset_bottom = 97.0
+theme_override_fonts/font = ExtResource("5_0ff0j")
+text = "SALTAR"
 
 [node name="Label" type="Label" parent="."]
 offset_left = -510.0
@@ -273,4 +243,5 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
+[connection signal="pressed" from="Camera2D/Control/Button" to="." method="_on_button_pressed"]
 [connection signal="animation_finished" from="Transicion" to="." method="_on_transicion_animation_finished"]
