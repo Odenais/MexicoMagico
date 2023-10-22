@@ -1,13 +1,13 @@
 extends Node
 
 
-var piedras = 0 :
+var coleccionables = 0 :
 	set(val):
-		piedras=val
+		coleccionables=val
 		if player != null:
 			print("Tomó")
 			#$AudioStreamPlayer2D.play()
 	get:
-		return piedras
+		return coleccionables
 
 var player

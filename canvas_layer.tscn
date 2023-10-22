@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://x233t5pn0xl"]
+
+[ext_resource type="Script" path="res://CanvasLayer.gd" id="1_7a5er"]
+[ext_resource type="Texture2D" uid="uid://d23fqllo7knso" path="res://Assets/Food pyramid/Line/Fruits/Apple.png" id="2_h2wlr"]
+[ext_resource type="FontFile" uid="uid://6kevsfysjxx2" path="res://Sprites/Assets_PixelAdventure/Fonts/NokiaCellphoneFC.ttf" id="3_6rtmu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6o1en"]
+font = ExtResource("3_6rtmu")
+font_size = 20
+shadow_size = 7
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_033l4"]
+font = ExtResource("3_6rtmu")
+font_size = 20
+shadow_size = 7
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_7a5er")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_h2wlr")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "Coleccionables:"
+label_settings = SubResource("LabelSettings_6o1en")
+
+[node name="Label2" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_033l4")

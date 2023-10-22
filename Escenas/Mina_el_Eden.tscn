@@ -1,7 +1,7 @@
 [gd_scene load_steps=30 format=3 uid="uid://b4ylvjxbpm8hi"]
 
 [ext_resource type="Script" path="res://Scripts/Mina_el_Eden.gd" id="1_3letu"]
-[ext_resource type="Texture2D" uid="uid://cwgrvtatr6ok7" path="res://Assets/tileset_dirt.png" id="1_gxm5o"]
+[ext_resource type="Texture2D" uid="uid://cwgrvtatr6ok7" path="res://Sprites/Rocky Roads/Tilesets/tileset_dirt.png" id="1_gxm5o"]
 [ext_resource type="PackedScene" uid="uid://cjsfetl2jnmio" path="res://Players/MainPlayer/player.tscn" id="2_ojbmt"]
 [ext_resource type="Texture2D" uid="uid://d2gn7tux4bkr6" path="res://Assets/Foco amarillo.png" id="3_8idd8"]
 [ext_resource type="PackedScene" uid="uid://bmrqrmrsnv8qi" path="res://Escenas/Jeep_riding.tscn" id="3_366ew"]

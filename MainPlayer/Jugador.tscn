@@ -1,0 +1,94 @@
+[gd_scene load_steps=8 format=3 uid="uid://dbad3dtukfjpu"]
+
+[ext_resource type="Texture2D" uid="uid://bei7x67psb4c4" path="res://Assets/Terreno/Assets_PixelAdventure/Main Characters/Mask Dude.png" id="1_2td1g"]
+[ext_resource type="Script" path="res://MainPlayer/movimientoJugador.gd" id="1_6dind"]
+
+[sub_resource type="Animation" id="Animation_eqmsn"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+}
+
+[sub_resource type="Animation" id="Animation_lhsdt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_8ybv6"]
+resource_name = "walk"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+}
+
+[sub_resource type="Animation" id="Animation_xb47b"]
+resource_name = "jump"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [21, 22, 23, 24]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4ae1r"]
+_data = {
+"RESET": SubResource("Animation_lhsdt"),
+"idle": SubResource("Animation_eqmsn"),
+"jump": SubResource("Animation_xb47b"),
+"walk": SubResource("Animation_8ybv6")
+}
+
+[node name="Jugador" type="Node2D"]
+
+[node name="CharacterBody2D2" type="CharacterBody2D" parent="."]
+script = ExtResource("1_6dind")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="CharacterBody2D2"]
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D2"]
+texture = ExtResource("1_2td1g")
+hframes = 11
+vframes = 4
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D2"]
+speed_scale = 1.76
+libraries = {
+"": SubResource("AnimationLibrary_4ae1r")
+}
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D2"]
+zoom = Vector2(2.5, 2.5)

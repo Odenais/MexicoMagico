@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://55floefa48gk"]
+
+[ext_resource type="Script" path="res://portales/portalRegresoTianguis.gd" id="1_lnxpr"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_khlop"]
+radius = 13.9285
+height = 258.673
+
+[node name="Area2D" type="Area2D"]
+scale = Vector2(1.21529, 1.00513)
+script = ExtResource("1_lnxpr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-225.461, 53.7244)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_khlop")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

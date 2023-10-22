@@ -34,6 +34,7 @@ func _on_button_jerez_pressed():
 func _on_button_plateros_pressed():
 	transition.play("fade_out")
 	opc = "PLAT";
+	scene = preload("res://Iglesia.tscn");
 
 func _on_button_volver_pressed():
 	transition.play("fade_out")
@@ -43,7 +44,7 @@ func _on_button_volver_pressed():
 func _on_transicion_animation_finished(anim_name):
 	if opc == "JEREZ":
 		get_tree().change_scene_to_packed(scene)
-	elif opc == "FRESNILLO":
+	elif opc == "PLAT":
 		get_tree().change_scene_to_packed(scene)
 	elif opc == "ZAC":
 		get_tree().change_scene_to_packed(scene) # Escena del museo

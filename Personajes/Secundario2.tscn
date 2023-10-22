@@ -1,0 +1,115 @@
+[gd_scene load_steps=7 format=3 uid="uid://dixhh1qacp4gy"]
+
+[ext_resource type="Texture2D" uid="uid://cos60xd4v3ebl" path="res://Personajes/Assets/Secundario2FF.png" id="1_8sr1q"]
+
+[sub_resource type="GDScript" id="GDScript_w4s85"]
+script/source = "extends CharacterBody2D
+
+
+var speed := 100
+var direccion := 0.0
+var jump := 320
+const gravity := 15
+signal change_position_request
+
+
+var move_speed = 100
+var is_waiting = true
+var conteo = 0
+
+func _physics_process(delta):
+	$Timer.start()
+	
+	conteo = conteo+1
+	print(conteo)
+	if conteo <= 200:
+		velocity.x = 0
+		$AnimationPlayer.play(\"idle\")
+	if  conteo>200 && conteo <= 250:
+		velocity.x = 1 * speed
+		$Sprite2D.flip_h = false;
+		$AnimationPlayer.play(\"walk\")
+	if  conteo>250 && conteo <= 450:
+		velocity.x = 0
+		$AnimationPlayer.play(\"idle\")
+	if conteo>450 && conteo <= 500:
+		velocity.x = -1 * speed;
+		$Sprite2D.flip_h = true;
+		$AnimationPlayer.play(\"walk\")
+		
+	if conteo == 500:
+		conteo = 0
+	move_and_slide()
+
+"
+
+[sub_resource type="Animation" id="Animation_prjwq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_d0sne"]
+resource_name = "idle"
+length = 1.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+}
+
+[sub_resource type="Animation" id="Animation_pbfac"]
+resource_name = "walk"
+length = 0.55
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [11, 12, 13, 14, 15, 16]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2pui1"]
+_data = {
+"RESET": SubResource("Animation_prjwq"),
+"idle": SubResource("Animation_d0sne"),
+"walk": SubResource("Animation_pbfac")
+}
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = SubResource("GDScript_w4s85")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_8sr1q")
+hframes = 11
+vframes = 4
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2pui1")
+}
+
+[node name="Timer" type="Timer" parent="."]
