@@ -1,7 +1,7 @@
-[gd_scene load_steps=28 format=3 uid="uid://b4ylvjxbpm8hi"]
+[gd_scene load_steps=30 format=3 uid="uid://b4ylvjxbpm8hi"]
 
 [ext_resource type="Script" path="res://Scripts/Mina_el_Eden.gd" id="1_3letu"]
-[ext_resource type="Texture2D" uid="uid://cwgrvtatr6ok7" path="res://Sprites/Rocky Roads/Tilesets/tileset_dirt.png" id="1_gxm5o"]
+[ext_resource type="Texture2D" uid="uid://cwgrvtatr6ok7" path="res://Assets/tileset_dirt.png" id="1_gxm5o"]
 [ext_resource type="PackedScene" uid="uid://cjsfetl2jnmio" path="res://Players/MainPlayer/player.tscn" id="2_ojbmt"]
 [ext_resource type="Texture2D" uid="uid://d2gn7tux4bkr6" path="res://Assets/Foco amarillo.png" id="3_8idd8"]
 [ext_resource type="PackedScene" uid="uid://bmrqrmrsnv8qi" path="res://Escenas/Jeep_riding.tscn" id="3_366ew"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://ddqieo528y2m3" path="res://Assets/cave/tile_cave_rail.png" id="7_omevr"]
 [ext_resource type="AudioStream" uid="uid://cbogxxmrly6vl" path="res://Assets/Sounds/dripping-water-in-cave-114694.mp3" id="8_4wkja"]
 [ext_resource type="Texture2D" uid="uid://hbjh28t1w1x5" path="res://Assets/Letrero.png" id="10_nnrjn"]
+[ext_resource type="PackedScene" uid="uid://c4i0bxc5ipg4m" path="res://Coleccionables/CanvasColeccionables.tscn" id="12_f5cyw"]
+[ext_resource type="PackedScene" uid="uid://chu4wi2scbci" path="res://Coleccionables/silver_coin.tscn" id="13_n306n"]
 
 [sub_resource type="Gradient" id="Gradient_4rp5b"]
 offsets = PackedFloat32Array(0)
@@ -2877,3 +2879,29 @@ layer_0/tile_data = PackedInt32Array(1245251, 65538, 5, 1245252, 131074, 5, 1310
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(-1, 1)
 stream = ExtResource("8_4wkja")
+
+[node name="CanvasLayer" parent="." instance=ExtResource("12_f5cyw")]
+
+[node name="silver_coin" parent="." instance=ExtResource("13_n306n")]
+position = Vector2(191, 91)
+
+[node name="PointLight2D" type="PointLight2D" parent="silver_coin"]
+position = Vector2(-1.00003, -1.52588e-05)
+scale = Vector2(0.276316, 0.263514)
+texture = SubResource("GradientTexture2D_r6fjk")
+
+[node name="silver_coin2" parent="." instance=ExtResource("13_n306n")]
+position = Vector2(338, 81)
+
+[node name="PointLight2D" type="PointLight2D" parent="silver_coin2"]
+position = Vector2(-1, -1.52588e-05)
+scale = Vector2(0.276316, 0.263514)
+texture = SubResource("GradientTexture2D_r6fjk")
+
+[node name="silver_coin3" parent="." instance=ExtResource("13_n306n")]
+position = Vector2(245, 87)
+
+[node name="PointLight2D" type="PointLight2D" parent="silver_coin3"]
+position = Vector2(-0.999939, 0.999985)
+scale = Vector2(0.276316, 0.263514)
+texture = SubResource("GradientTexture2D_r6fjk")

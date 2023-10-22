@@ -1,6 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://chu4wi2scbci"]
+[gd_scene load_steps=8 format=3 uid="uid://chu4wi2scbci"]
 
+[ext_resource type="Script" path="res://Coleccionables/silver_coin.gd" id="1_8wv1l"]
 [ext_resource type="Texture2D" uid="uid://bs05afq50qtlj" path="res://Sprites/Rocky Roads/Objects/coin_silver.png" id="1_ap0f1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5hh18"]
+radius = 12.0416
 
 [sub_resource type="Animation" id="Animation_8jbnx"]
 length = 0.001
@@ -34,24 +38,43 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3, 4, 5, 6, 7]
 }
 
+[sub_resource type="Animation" id="Animation_5w7xg"]
+resource_name = "new_animation"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tpvx5"]
 _data = {
 "RESET": SubResource("Animation_8jbnx"),
-"exist": SubResource("Animation_kv1j0")
+"exist": SubResource("Animation_kv1j0"),
+"new_animation": SubResource("Animation_5w7xg")
 }
 
-[node name="silver_coin" type="Node2D"]
+[node name="silver_coin" type="Area2D"]
+script = ExtResource("1_8wv1l")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_ap0f1")
 hframes = 8
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_5hh18")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Sprite2D")
 libraries = {
 "": SubResource("AnimationLibrary_tpvx5")
 }
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

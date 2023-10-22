@@ -5,8 +5,8 @@ var piedras = 0 :
 	set(val):
 		piedras=val
 		if player != null:
-			
-			$AudioStreamPlayer2D.play()
+			print("Tomó")
+			#$AudioStreamPlayer2D.play()
 	get:
 		return piedras
 

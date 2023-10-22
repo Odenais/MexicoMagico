@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://cdxsojdquk4f3"]
 
-[ext_resource type="Script" path="res://Global.gd" id="1_1gsnp"]
-[ext_resource type="AudioStream" uid="uid://di2p4xwb1340l" path="res://Sprites/Assets_PixelAdventure/Sounds/confirmation_002.ogg" id="2_fbgbu"]
+[ext_resource type="Script" path="res://Global.gd" id="1_u5tob"]
+[ext_resource type="AudioStream" uid="uid://di2p4xwb1340l" path="res://Sprites/Assets_PixelAdventure/Sounds/confirmation_002.ogg" id="2_e71he"]
 
 [node name="Global" type="Node"]
-script = ExtResource("1_1gsnp")
+script = ExtResource("1_u5tob")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("2_fbgbu")
+stream = ExtResource("2_e71he")

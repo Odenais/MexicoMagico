@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4i0bxc5ipg4m"]
+
+[ext_resource type="Script" path="res://Coleccionables/CanvasColeccionables.gd" id="1_cp2vl"]
+[ext_resource type="Texture2D" uid="uid://di1m7shyd3pjf" path="res://Sprites/Assets_PixelAdventure/Items/Checkpoints/End/End (Idle).png" id="1_djpff"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_cp2vl")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_djpff")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "Coleccionables:"
+
+[node name="Label2" type="Label" parent="HBoxContainer"]
+layout_mode = 2

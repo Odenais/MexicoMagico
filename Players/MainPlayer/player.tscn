@@ -17,6 +17,9 @@ signal change_position_request
 @onready var sprite := $Sprite2D
 @onready var piedrasLabel := $HBoxContainer/Label2
 
+func _ready():
+	Global.player = self
+
 	
 func _physics_process(delta):
 	direccion = Input.get_axis(\"ui_left\",\"ui_right\")
