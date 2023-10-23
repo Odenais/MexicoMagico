@@ -29,7 +29,7 @@ func _on_button_fresnillo_pressed():
 func _on_button_jerez_pressed():
 	transition.play("fade_out")
 	opc = "JEREZ"
-	scene = preload("res://Escenas/game.tscn");
+	scene = preload("res://Escenas/map.tscn");
 
 func _on_button_plateros_pressed():
 	transition.play("fade_out")
