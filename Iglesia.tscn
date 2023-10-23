@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://b7s215jrbst07"]
+[gd_scene load_steps=44 format=3 uid="uid://b7s215jrbst07"]
 
 [ext_resource type="Script" path="res://Iglesia.gd" id="1_5kaga"]
 [ext_resource type="Texture2D" uid="uid://cbmb5cipyhb2u" path="res://Sprites/Assets_PixelAdventure/Terrain/Terrain (16x16).png" id="1_ia5fw"]
@@ -30,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://dqrprn3jos7wy" path="res://Assets/Parallax/_02_trees and bushes.png" id="26_ppayf"]
 [ext_resource type="Texture2D" uid="uid://ccds64vaukimo" path="res://Assets/Parallax/_01_ground.png" id="27_ua02p"]
 [ext_resource type="AudioStream" uid="uid://d0w2lrbf462m5" path="res://Sonidos/market-23091.mp3" id="31_hivih"]
+[ext_resource type="Texture2D" uid="uid://q12p1p04ol0k" path="res://Sprites/Idle.png" id="32_4yx6w"]
 [ext_resource type="AudioStream" uid="uid://f0uh3dl6bqse" path="res://Sonidos/bragernesasen-18874.mp3" id="32_w85ab"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aoac3"]
@@ -1370,8 +1371,43 @@ size = Vector2(20, 109.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q6fau"]
 size = Vector2(32, 166)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_n8ihb"]
-size = Vector2(11, 33)
+[sub_resource type="Animation" id="Animation_jguhe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_om6no"]
+resource_name = "new_animation"
+length = 0.25
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_64iog"]
+_data = {
+"RESET": SubResource("Animation_jguhe"),
+"new_animation": SubResource("Animation_om6no")
+}
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_5kaga")
@@ -1543,7 +1579,7 @@ layer_0/tile_data = PackedInt32Array(196606, 65537, 1, 196607, 65537, 1, 262143,
 [node name="PortalSalida" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PortalSalida"]
-position = Vector2(1167, -40.25)
+position = Vector2(1273, -39)
 shape = SubResource("RectangleShape2D_qv7bm")
 
 [node name="Manzana" parent="." instance=ExtResource("4_5bjhr")]
@@ -1667,17 +1703,23 @@ motion_mirroring = Vector2(1024, 0)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("27_ua02p")
 
-[node name="SonidoTianguis" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SonidoTianguis"]
-position = Vector2(-123.5, -2.5)
-shape = SubResource("RectangleShape2D_n8ihb")
-
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("31_hivih")
 
 [node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("32_w85ab")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1254, -47)
+scale = Vector2(0.496094, 0.492188)
+texture = ExtResource("32_4yx6w")
+hframes = 3
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_64iog")
+}
 
 [connection signal="body_entered" from="PortalSalida" to="." method="_on_portal_salida_body_entered"]
 [connection signal="body_entered" from="PortalSalida" to="PortalSalida" method="_on_body_entered"]
@@ -1691,5 +1733,3 @@ stream = ExtResource("32_w85ab")
 [connection signal="body_entered" from="Manzana4" to="Manzana4" method="_on_body_entered"]
 [connection signal="body_entered" from="Manzana5" to="PortalSalida" method="_on_node_2d_body_entered"]
 [connection signal="body_entered" from="Manzana5" to="Manzana5" method="_on_body_entered"]
-[connection signal="body_entered" from="SonidoTianguis" to="." method="_on_sonido_tianguis_body_entered"]
-[connection signal="body_entered" from="SonidoTianguis" to="SonidoTianguis" method="_on_body_entered"]

@@ -2,13 +2,7 @@ extends Node2D
 
 func _ready():
 	$AudioStreamPlayer2D2.play()
-
-func _on_sonido_tianguis_body_entered(body):
-	
-	if body.name == "Jugador":
-		$AudioStreamPlayer2D2.stop()
-		$AudioStreamPlayer2D.play()
-
+	$Sprite2D/AnimationPlayer.play("new_animation")
 
 
 func _on_portal_salida_body_entered(body):

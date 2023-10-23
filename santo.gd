@@ -12,6 +12,7 @@ func _on_body_entered(body):
 			$PointLight2D.enabled = true;
 			$AudioStreamPlayer2D2.play()
 		else:
+			$"../VBoxContainer".visible=true
 			$AudioStreamPlayer2D.play()
 			print("No tienes todo")
 	

@@ -1,7 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://khmp8us7r4jj"]
+[gd_scene load_steps=9 format=3 uid="uid://khmp8us7r4jj"]
 
 [ext_resource type="Script" path="res://Coleccionables/colecciónManzanas.gd" id="1_oqk8m"]
-[ext_resource type="Texture2D" uid="uid://b7hjqcga15ej1" path="res://Assets/Terreno/Assets_PixelAdventure/Items/Fruits/Apple.png" id="1_v56hd"]
+[ext_resource type="Texture2D" uid="uid://b7hjqcga15ej1" path="res://Sprites/Assets_PixelAdventure/Items/Fruits/Apple.png" id="2_dfast"]
+
+[sub_resource type="Animation" id="Animation_56tqf"]
+resource_name = "Collected"
+length = 0.55
 
 [sub_resource type="Animation" id="Animation_s5moi"]
 length = 0.001
@@ -25,6 +29,7 @@ length = 0.5
 [sub_resource type="Animation" id="Animation_d6uon"]
 resource_name = "new_animation"
 length = 1.8
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -40,6 +45,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_70i0j"]
 _data = {
+"Collected": SubResource("Animation_56tqf"),
 "RESET": SubResource("Animation_s5moi"),
 "colected": SubResource("Animation_x1ayc"),
 "new_animation": SubResource("Animation_d6uon")
@@ -52,7 +58,7 @@ radius = 12.1655
 script = ExtResource("1_oqk8m")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_v56hd")
+texture = ExtResource("2_dfast")
 hframes = 17
 frame = 1
 
