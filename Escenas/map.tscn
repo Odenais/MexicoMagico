@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b78wkdff25e1r"]
+[gd_scene load_steps=16 format=3 uid="uid://b78wkdff25e1r"]
 
 [ext_resource type="Script" path="res://Scripts/map.gd" id="1_k54c1"]
 [ext_resource type="Texture2D" uid="uid://d1xn3neiuhrx1" path="res://Assets/swampStructures_ [fenceGate].png" id="2_qvmub"]
@@ -600,6 +600,84 @@ corner_radius_bottom_left = 5
 anti_aliasing = false
 anti_aliasing_size = 10.0
 
+[sub_resource type="Animation" id="Animation_5c7k1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transicion/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4lhmx"]
+resource_name = "fade_in"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transicion/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 0.0185815),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transicion/ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.7),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_b2mwc"]
+resource_name = "fade_out"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transicion/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transicion/ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nsh1a"]
+_data = {
+"RESET": SubResource("Animation_5c7k1"),
+"fade_in": SubResource("Animation_4lhmx"),
+"fade_out": SubResource("Animation_b2mwc")
+}
+
 [node name="Mapa" type="Node2D"]
 script = ExtResource("1_k54c1")
 spawnTime = 2
@@ -622,24 +700,6 @@ layer_0/tile_data = PackedInt32Array(0, 720897, 5, 65536, 720897, 6, 131072, 720
 [node name="Timer" type="Timer" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("5_km7b5")]
-
-[node name="GameOver" type="Label" parent="."]
-texture_filter = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 195.0
-offset_top = 144.0
-offset_right = 369.0
-offset_bottom = 234.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-text = "GAME OVER
-Puntaje: "
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 z_index = 2
@@ -679,4 +739,57 @@ limit_top = 0
 limit_right = 640
 limit_bottom = 368
 
+[node name="Transicion" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_nsh1a")
+}
+
+[node name="ColorRect" type="ColorRect" parent="Transicion"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="GameOver" type="Label" parent="."]
+visible = false
+texture_filter = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 195.0
+offset_top = 144.0
+offset_right = 369.0
+offset_bottom = 234.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "GAME OVER
+Puntaje: "
+
+[node name="Button" type="Button" parent="GameOver"]
+layout_mode = 0
+offset_left = 89.0
+offset_top = 128.0
+offset_right = 131.0
+offset_bottom = 159.0
+text = "Salir"
+
+[node name="Button2" type="Button" parent="GameOver"]
+layout_mode = 0
+offset_left = 93.0
+offset_top = 88.0
+offset_right = 208.0
+offset_bottom = 119.0
+text = "Volver a jugar"
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="animation_finished" from="Transicion" to="." method="_on_transicion_animation_finished"]
+[connection signal="pressed" from="GameOver/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="GameOver/Button2" to="." method="_on_button_2_pressed"]

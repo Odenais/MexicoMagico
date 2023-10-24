@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var anim = $AnimationPlayer
 @onready var transition = $Transicion
-@onready var scene = preload("res://Escenas/Mina_el_Eden_Intro.tscn");
+@onready var scene = preload("res://Escenas/Mina_el_Eden.tscn");
 
 func _ready():
 	anim.play("cutscene");

@@ -2,12 +2,14 @@ extends Node2D
 
 var enemy = preload("res://Escenas/enemy.tscn")
 @export var spawnTime = 10
+@onready var transition = $Transicion
+var scene;
 var score = 0
 var enemies = []
 
 func _ready():
-	$Timer.start()
-	$GameOver.visible = false
+	$Timer.start();
+
 	
 func eliminarNodosDeTipo(target_node):
 	var hijos = target_node.get_children()
@@ -36,3 +38,16 @@ func _on_timer_timeout():
 	# print($Timer.wait_time)
 	$PanelContainer/HBoxContainer/Score.text = str(score)
 	score += 1
+
+
+func _on_button_pressed():
+	scene = preload("res://Escenas/zacatecas.tscn");
+	transition.play("fade_out");
+
+func _on_transicion_animation_finished(anim_name):
+	get_tree().change_scene_to_packed(scene);
+
+
+func _on_button_2_pressed():
+	scene = load("res://Escenas/map.tscn");
+	transition.play("fade_out");
