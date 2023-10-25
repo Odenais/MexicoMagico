@@ -5,12 +5,11 @@ var enemy = preload("res://Escenas/enemy.tscn")
 @onready var transition = $Transicion
 var scene;
 var score = 0
-var enemies = []
 
 func _ready():
-	$Timer.start();
-
-	
+	if $Timer.is_stopped():
+		$Timer.start()
+		
 func eliminarNodosDeTipo(target_node):
 	var hijos = target_node.get_children()
 	for hijo in hijos:
@@ -46,7 +45,6 @@ func _on_button_pressed():
 
 func _on_transicion_animation_finished(anim_name):
 	get_tree().change_scene_to_packed(scene);
-
 
 func _on_button_2_pressed():
 	scene = load("res://Escenas/map.tscn");

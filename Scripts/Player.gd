@@ -6,21 +6,23 @@ extends CharacterBody2D
 func checkAnimations():
 	if velocity.x == 0 and velocity.y == 0:
 		animation.play("idle")
-	if Input.is_action_pressed("ui_down"):
+	if Input.is_action_pressed("ui_down") and !Input.is_action_pressed("ui_left") and !Input.is_action_pressed("ui_right"):
 		animation.play("down")
-	elif Input.is_action_pressed("ui_down") and Input.is_action_pressed("ui_left"):
+	elif Input.is_action_pressed("ui_down") and Input.is_action_pressed("ui_left") and !Input.is_action_pressed("ui_right"):
 		animation.play("down_left")
-	elif Input.is_action_pressed("ui_down") and Input.is_action_pressed("ui_right"):
+	elif Input.is_action_pressed("ui_down") and Input.is_action_pressed("ui_right") and !Input.is_action_pressed("ui_left"):
 		animation.play("down_right")
-	if Input.is_action_pressed("ui_up"):
+		
+	if Input.is_action_pressed("ui_up") and !Input.is_action_pressed("ui_left") and !Input.is_action_pressed("ui_right"):
 		animation.play("up")
-	elif Input.is_action_pressed("ui_up") and Input.is_action_pressed("ui_left"):
+	elif Input.is_action_pressed("ui_up") and Input.is_action_pressed("ui_left") and !Input.is_action_pressed("ui_right"):
 		animation.play("up_left")
-	elif Input.is_action_pressed("ui_up") and Input.is_action_pressed("ui_right"):
+	elif Input.is_action_pressed("ui_up") and Input.is_action_pressed("ui_right") and !Input.is_action_pressed("ui_left"):
 		animation.play("up_right")
-	if Input.is_action_pressed("ui_left"):
+		
+	if Input.is_action_pressed("ui_left") and !Input.is_action_pressed("ui_up") and !Input.is_action_pressed("ui_down"):
 		animation.play("left")
-	if Input.is_action_pressed("ui_right"):
+	if Input.is_action_pressed("ui_right") and !Input.is_action_pressed("ui_up") and !Input.is_action_pressed("ui_down"):
 		animation.play("right")
 
 func _process(delta):
