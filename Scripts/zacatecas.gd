@@ -20,7 +20,10 @@ func _process(delta):
 	elif $ButtonPlateros.is_hovered():
 		label.text = "Plateros es una localidad ubicada en el estado de Zacatecas, México. Se destaca por su fuerte tradición religiosa y es conocida por ser el hogar de un santuario importante dedicado al Niño de Atocha. Este santuario atrae a numerosos peregrinos y visitantes de toda la región y del país que vienen en busca de protección y milagros del Niño de Atocha, un santo católico muy venerado en la zona."
 		titulo.text = "Plateros"
-			
+	elif $ButtonPinos.is_hovered():
+		label.text = "Pinos fue fundado en 1594 con el nombre de Real de Nuestra Señora de Sierra de Pinos poco después de que el capitán mestizo (zacatecano) Miguel Caldera vislumbrara \"una magnífica oportunidad para explorar sus ricos suelos\"";
+		titulo.text = "Pinos"
+		
 func _on_button_fresnillo_pressed():
 	transition.play("fade_out")
 	scene = preload("res://Escenas/Mina_el_Eden_Entrada.tscn");
@@ -47,6 +50,14 @@ func _on_transicion_animation_finished(anim_name):
 	elif opc == "PLAT":
 		get_tree().change_scene_to_packed(scene)
 	elif opc == "ZAC":
+		get_tree().change_scene_to_packed(scene)
+	elif opc == "PINOS":
 		get_tree().change_scene_to_packed(scene) # Escena del museo
 	elif opc == "SALIR":
 		get_tree().change_scene_to_file("res://Escenas/MenuPrincipal.tscn")
+
+
+func _on_button_pinos_pressed():
+	transition.play("fade_out")
+	opc = "PINOS"
+	scene = preload("res://Escenas/Mapa.tscn");

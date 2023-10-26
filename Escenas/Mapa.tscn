@@ -1,0 +1,218 @@
+[gd_scene load_steps=21 format=3 uid="uid://fwc0rsmcwhap"]
+
+[ext_resource type="Script" path="res://Scripts/Mapa.gd" id="1_h2dcv"]
+[ext_resource type="Texture2D" uid="uid://cicl26n6aslui" path="res://Assets/bg.png" id="1_qt4bi"]
+[ext_resource type="PackedScene" uid="uid://ct48mlkqhrvpu" path="res://Escenas/Jugador.tscn" id="2_bo06x"]
+[ext_resource type="FontFile" uid="uid://cb5i2iivown64" path="res://Fuentes/Minecraft.ttf" id="3_hxfm4"]
+[ext_resource type="Script" path="res://Scripts/Score.gd" id="5_faab6"]
+[ext_resource type="PackedScene" uid="uid://cd2sdstlle3oa" path="res://Escenas/Menu.tscn" id="6_4et1q"]
+[ext_resource type="Script" path="res://Scripts/Shake.gd" id="7_qeqlx"]
+[ext_resource type="Texture2D" uid="uid://bm74di01bdjlf" path="res://Assets/9 Background.png" id="13_scfni"]
+[ext_resource type="Texture2D" uid="uid://ok0hpx6c8t8a" path="res://Assets/6 Sun.png" id="14_sl013"]
+[ext_resource type="Script" path="res://Scripts/Nubes.gd" id="15_8wr8n"]
+[ext_resource type="Texture2D" uid="uid://kt2e218w52r3" path="res://Assets/7 Clouds.png" id="15_nfogr"]
+[ext_resource type="Texture2D" uid="uid://bb1tofbwcq44k" path="res://Assets/5 Mountains.png" id="16_6482v"]
+[ext_resource type="Texture2D" uid="uid://p8onpe8wychj" path="res://Assets/4 Layer4.png" id="17_kiic1"]
+[ext_resource type="Script" path="res://Scripts/Montañas.gd" id="17_td6j1"]
+[ext_resource type="AudioStream" uid="uid://cd8gfgib1rcw2" path="res://Efectos/8-bit-video-game-fail-version-2-145478.mp3" id="18_7p02g"]
+[ext_resource type="Texture2D" uid="uid://bwdjs2wapunpj" path="res://Assets/3 Layer3.png" id="18_hi3b3"]
+[ext_resource type="Script" path="res://Scripts/Colina1.gd" id="19_s6pqy"]
+[ext_resource type="Script" path="res://Scripts/Colina2.gd" id="21_wkj8y"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2f037"]
+texture = ExtResource("1_qt4bi")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/0 = 0
+2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:1/0/physics_layer_0/angular_velocity = 0.0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:1/0 = 0
+3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:1/0/physics_layer_0/angular_velocity = 0.0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:1/0 = 0
+4:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:1/0/physics_layer_0/angular_velocity = 0.0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:1/0 = 0
+5:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/0/physics_layer_0/angular_velocity = 0.0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:1/0 = 0
+6:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+6:1/0/physics_layer_0/angular_velocity = 0.0
+6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/0 = 0
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:0/0 = 0
+4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:0/0/physics_layer_0/angular_velocity = 0.0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:0/0 = 0
+5:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:0/0/physics_layer_0/angular_velocity = 0.0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:0/0 = 0
+6:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+6:0/0/physics_layer_0/angular_velocity = 0.0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:0/0 = 0
+7:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+7:0/0/physics_layer_0/angular_velocity = 0.0
+7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:1/0 = 0
+7:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+7:1/0/physics_layer_0/angular_velocity = 0.0
+7:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_wg1js"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_2f037")
+
+[node name="Mapa" type="Node2D"]
+script = ExtResource("1_h2dcv")
+
+[node name="ScoreTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_wg1js")
+format = 2
+layer_0/tile_data = PackedInt32Array(1376259, 65536, 0, 1310724, 262144, 0, 1310726, 262144, 0, 1310727, 327680, 1, 1376268, 327680, 1, 1310734, 458752, 0, 1310736, 131072, 0, 1376272, 131072, 0, 1310738, 65536, 0, 1376275, 131072, 0, 1376276, 327680, 1, 1310741, 65536, 0, 1376277, 393216, 0, 1376278, 327680, 1, 1376281, 262144, 0, 1310750, 327680, 1, 1310752, 0, 0, 1376291, 196608, 1, 1376293, 65536, 0, 1310758, 0, 0, 1310720, 393216, 1, 1376256, 458752, 1, 1441792, 262144, 1, 1310721, 393216, 1, 1376257, 393216, 1, 1441793, 0, 0, 1310722, 327680, 0, 1376258, 393216, 0, 1441794, 0, 0, 1310723, 131072, 1, 1441795, 393216, 0, 1376260, 0, 1, 1441796, 327680, 0, 1310725, 262144, 1, 1376261, 262144, 1, 1441797, 196608, 1, 1376262, 262144, 0, 1441798, 393216, 0, 1376263, 327680, 0, 1441799, 65536, 0, 1310728, 0, 1, 1376264, 196608, 1, 1441800, 0, 0, 1310729, 65536, 1, 1376265, 196608, 0, 1441801, 262144, 1, 1310730, 393216, 1, 1376266, 0, 0, 1441802, 327680, 1, 1310731, 458752, 1, 1376267, 458752, 0, 1441803, 327680, 1, 1310732, 262144, 0, 1441804, 327680, 0, 1310733, 196608, 1, 1376269, 0, 1, 1441805, 393216, 0, 1376270, 458752, 0, 1441806, 131072, 1, 1310735, 327680, 1, 1376271, 0, 1, 1441807, 196608, 1, 1441808, 131072, 0, 1310737, 262144, 1, 1376273, 65536, 0, 1441809, 458752, 0, 1376274, 65536, 1, 1441810, 458752, 0, 1310739, 131072, 0, 1441811, 458752, 0, 1310740, 458752, 0, 1441812, 131072, 1, 1441813, 327680, 1, 1310742, 393216, 0, 1441814, 262144, 0, 1310743, 262144, 0, 1376279, 131072, 1, 1441815, 131072, 0, 1310744, 262144, 1, 1376280, 458752, 0, 1441816, 262144, 1, 1310745, 393216, 0, 1441817, 458752, 0, 1310746, 65536, 1, 1376282, 393216, 0, 1441818, 262144, 0, 1310747, 0, 0, 1376283, 393216, 1, 1441819, 458752, 1, 1310748, 131072, 1, 1376284, 262144, 1, 1441820, 262144, 1, 1310749, 0, 0, 1376285, 196608, 1, 1441821, 0, 0, 1376286, 131072, 0, 1441822, 196608, 0, 1310751, 0, 0, 1376287, 65536, 0, 1441823, 458752, 1, 1376288, 458752, 1, 1441824, 65536, 1, 1310753, 65536, 1, 1376289, 327680, 1, 1441825, 131072, 0, 1310754, 393216, 0, 1376290, 65536, 0, 1441826, 65536, 1, 1310755, 196608, 0, 1441827, 327680, 1, 1310756, 327680, 0, 1376292, 0, 0, 1441828, 196608, 1, 1310757, 262144, 1, 1441829, 458752, 0, 1376294, 0, 0, 1441830, 0, 0, 1310759, 262144, 0, 1376295, 131072, 1, 1441831, 393216, 0)
+
+[node name="Jugador" parent="." instance=ExtResource("2_bo06x")]
+position = Vector2(141, 264)
+
+[node name="Puntos" type="Node2D" parent="."]
+
+[node name="Control" type="Control" parent="Puntos"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 639.0
+offset_bottom = 367.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Score" type="Label" parent="Puntos/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0893417
+anchor_right = -0.0893417
+offset_left = 590.0
+offset_top = 8.0
+offset_right = 630.0
+offset_bottom = 31.0
+theme_override_fonts/font = ExtResource("3_hxfm4")
+theme_override_font_sizes/font_size = 16
+script = ExtResource("5_faab6")
+metadata/_edit_use_anchors_ = true
+
+[node name="Menu" parent="." instance=ExtResource("6_4et1q")]
+
+[node name="Shake" type="Node" parent="."]
+script = ExtResource("7_qeqlx")
+
+[node name="Camera2D" type="Camera2D" parent="Shake"]
+position = Vector2(320, 180)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="fondo" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/fondo"]
+texture_filter = 2
+scale = Vector2(0.335, 0.335)
+texture = ExtResource("13_scfni")
+centered = false
+
+[node name="Sol" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Sol"]
+texture_filter = 2
+scale = Vector2(0.335, 0.335)
+texture = ExtResource("14_sl013")
+centered = false
+
+[node name="Nubes" type="ParallaxBackground" parent="."]
+script = ExtResource("15_8wr8n")
+
+[node name="Nubes" type="ParallaxLayer" parent="Nubes"]
+motion_mirroring = Vector2(640, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Nubes/Nubes"]
+texture_filter = 2
+scale = Vector2(0.335, 0.335)
+texture = ExtResource("15_nfogr")
+centered = false
+
+[node name="Montañas" type="ParallaxBackground" parent="."]
+script = ExtResource("17_td6j1")
+
+[node name="Montañas" type="ParallaxLayer" parent="Montañas"]
+motion_mirroring = Vector2(640, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Montañas/Montañas"]
+texture_filter = 2
+scale = Vector2(0.335, 0.335)
+texture = ExtResource("16_6482v")
+centered = false
+
+[node name="Colina1" type="ParallaxBackground" parent="."]
+script = ExtResource("19_s6pqy")
+
+[node name="Colina1" type="ParallaxLayer" parent="Colina1"]
+motion_mirroring = Vector2(640, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Colina1/Colina1"]
+texture_filter = 2
+scale = Vector2(0.335, 0.335)
+texture = ExtResource("17_kiic1")
+centered = false
+
+[node name="Colina2" type="ParallaxBackground" parent="."]
+script = ExtResource("21_wkj8y")
+
+[node name="Colina2" type="ParallaxLayer" parent="Colina2"]
+motion_mirroring = Vector2(640, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Colina2/Colina2"]
+texture_filter = 2
+scale = Vector2(0.335, 0.335)
+texture = ExtResource("18_hi3b3")
+centered = false
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(645, 320)
+
+[node name="Dead" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("18_7p02g")
+
+[connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
+[connection signal="timeout" from="ScoreTimer" to="Puntos/Control/Score" method="_on_score_timer_timeout"]
+[connection signal="hit" from="Jugador" to="." method="_on_jugador_hit"]
+[connection signal="hit" from="Jugador" to="ScoreTimer" method="_on_jugador_hit"]
+[connection signal="hit" from="Jugador" to="Shake" method="_on_jugador_hit"]

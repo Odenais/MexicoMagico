@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cd2sdstlle3oa"]
+
+[ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_umj63"]
+[ext_resource type="Texture2D" uid="uid://d3tomw6hvoxkg" path="res://Assets/Reiniciar.svg" id="2_1jroh"]
+
+[node name="Menu" type="CanvasLayer"]
+script = ExtResource("1_umj63")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+visible = false
+texture_filter = 2
+offset_left = 268.0
+offset_top = 167.0
+offset_right = 332.0
+offset_bottom = 231.0
+texture_normal = ExtResource("2_1jroh")
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

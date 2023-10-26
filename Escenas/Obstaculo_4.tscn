@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdxlhbe8frojp"]
+
+[ext_resource type="Script" path="res://Scripts/Obstaculo.gd" id="1_glgpq"]
+[ext_resource type="Texture2D" uid="uid://d3xgu2vhhp0h" path="res://Assets/greenery_7.png" id="2_j8udf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rg2d3"]
+radius = 38.0526
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7t8l2"]
+size = Vector2(20, 120)
+
+[node name="Obstaculo_4" type="Area2D"]
+script = ExtResource("1_glgpq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_j8udf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -6)
+shape = SubResource("CircleShape2D_rg2d3")
+
+[node name="Deteccion" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deteccion"]
+position = Vector2(-1, -104)
+shape = SubResource("RectangleShape2D_7t8l2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="Deteccion" to="." method="_on_deteccion_body_entered"]
