@@ -136,6 +136,7 @@ script = ExtResource("7_qeqlx")
 
 [node name="Camera2D" type="Camera2D" parent="Shake"]
 position = Vector2(320, 180)
+zoom = Vector2(2, 2)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
