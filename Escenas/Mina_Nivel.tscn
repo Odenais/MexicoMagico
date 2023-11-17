@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://uoelgfbwt0rp"]
+[gd_scene load_steps=13 format=3 uid="uid://uoelgfbwt0rp"]
 
 [ext_resource type="Texture2D" uid="uid://b3a0f31cwd4pg" path="res://Rocky Roads/Backgrounds/fundo3.png" id="1_3yxht"]
 [ext_resource type="Script" path="res://Scripts/Mina_Nivel.gd" id="1_o4vs8"]
 [ext_resource type="Texture2D" uid="uid://cn84dqatak6dd" path="res://Rocky Roads/Tilesets/tileset_forest.png" id="2_6pcwo"]
 [ext_resource type="Texture2D" uid="uid://batcrolj8mdv0" path="res://Rocky Roads/Objects/pngwing.com (4).png" id="3_blyuv"]
 [ext_resource type="PackedScene" uid="uid://cjsfetl2jnmio" path="res://Players/MainPlayer/player.tscn" id="4_codst"]
+[ext_resource type="PackedScene" uid="uid://chu4wi2scbci" path="res://Coleccionables/silver_coin.tscn" id="7_r5awa"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a8kn1"]
 texture = ExtResource("2_6pcwo")
@@ -1103,33 +1104,59 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_a8kn1")
 sources/1 = SubResource("TileSetAtlasSource_xjyy0")
 
+[sub_resource type="Gradient" id="Gradient_riduo"]
+offsets = PackedFloat32Array(0, 0.964824, 1)
+colors = PackedColorArray(1, 1, 1, 0.854902, 1, 1, 1, 0.0194004, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cjmkv"]
+gradient = SubResource("Gradient_riduo")
+fill = 1
+fill_from = Vector2(0.534188, 0.482906)
+fill_to = Vector2(0.393162, 0.799145)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eerrm"]
-size = Vector2(723, 46)
+size = Vector2(1034, 46)
 
 [node name="Mundo" type="Node2D"]
 script = ExtResource("1_o4vs8")
 
 [node name="fondo" type="Sprite2D" parent="."]
-position = Vector2(6, 9)
-scale = Vector2(0.469786, 0.501776)
 texture = ExtResource("1_3yxht")
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(1, 1.02372)
 tile_set = SubResource("TileSet_yfssd")
 format = 2
-layer_0/tile_data = PackedInt32Array(458740, 524288, 3, 458741, 524288, 3, 458742, 524288, 3, 458743, 524288, 3, 458744, 524288, 3, 196597, 524288, 3, 196598, 524288, 3, 458739, 524288, 3, 458738, 524288, 3, -65546, 524288, 3, -65545, 524288, 3, -65544, 524288, 3, -65543, 524288, 3, 393213, 524288, 3, 393214, 524288, 3, 393215, 524288, 3, 327680, 524288, 3, 327681, 524288, 3, 131073, 524288, 3, 131074, 524288, 3, 131075, 524288, 3, 131076, 524288, 3, -65535, 524288, 3, -65536, 524288, 3, -1, 524288, 3, 196603, 524288, 3, -262139, 524288, 3, -262138, 524288, 3, -262137, 524288, 3, -262136, 524288, 3, -262135, 524288, 3, -262134, 524288, 3, -262133, 524288, 3, -65525, 524288, 3, -65524, 524288, 3, -65523, 524288, 3, -65522, 524288, 3, 262152, 524288, 3, 262151, 524288, 3, 262153, 524288, 3, 262154, 524288, 3, -327684, 524288, 3)
+layer_0/tile_data = PackedInt32Array(458740, 524288, 3, 458741, 524288, 3, 458742, 524288, 3, 458743, 524288, 3, 458744, 524288, 3, 196597, 524288, 3, 196598, 524288, 3, 458739, 524288, 3, 458738, 524288, 3, -65546, 524288, 3, -65545, 524288, 3, -65544, 524288, 3, -65543, 524288, 3, 393213, 524288, 3, 393214, 524288, 3, 393215, 524288, 3, 327680, 524288, 3, 327681, 524288, 3, 131073, 524288, 3, 131074, 524288, 3, 131075, 524288, 3, 131076, 524288, 3, -65535, 524288, 3, -65536, 524288, 3, -1, 524288, 3, 196603, 524288, 3, -262139, 524288, 3, -262138, 524288, 3, -262137, 524288, 3, -262136, 524288, 3, -262135, 524288, 3, -262134, 524288, 3, -262133, 524288, 3, -65525, 524288, 3, -65524, 524288, 3, -65523, 524288, 3, -65522, 589824, 3, 262152, 524288, 3, 262151, 524288, 3, 262153, 524288, 3, 262154, 524288, 3, -327684, 524288, 3, -524287, 524288, 3, -524286, 589824, 3, -524285, 655360, 3, -458740, 524288, 3, -458739, 589824, 3, -458738, 655360, 3, 196621, 524288, 3, 196622, 589824, 3, 196623, 655360, 3, 65554, 589824, 3, 65555, 655360, 3, -65521, 655360, 3, -16, 524288, 3, -15, 589824, 3, -14, 655360, 3, 65556, 655360, 3)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(3, 3)
+zoom = Vector2(1.5, 1.5)
 
 [node name="Player" parent="." instance=ExtResource("4_codst")]
 position = Vector2(-150, -300)
 
+[node name="PointLight2D" type="PointLight2D" parent="Player"]
+position = Vector2(3.8147e-06, 3.99998)
+scale = Vector2(8.60351, 6.4082)
+texture = SubResource("GradientTexture2D_cjmkv")
+
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(42, 173)
+position = Vector2(32, 291)
 shape = SubResource("RectangleShape2D_eerrm")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
+color = Color(0, 0, 0, 1)
+
+[node name="silver_coin" parent="." instance=ExtResource("7_r5awa")]
+position = Vector2(-56, -109)
+
+[node name="silver_coin2" parent="." instance=ExtResource("7_r5awa")]
+position = Vector2(-177, 86)
+
+[node name="silver_coin3" parent="." instance=ExtResource("7_r5awa")]
+position = Vector2(235, -33)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -322,7 +322,7 @@ script = ExtResource("1_n7841")
 texture_filter = 1
 position = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_wv88t")
-animation = &"right"
+animation = &"down"
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(1, 1)

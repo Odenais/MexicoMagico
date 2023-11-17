@@ -9,7 +9,7 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -430
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = 700
+var gravity = 1100
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -18,10 +18,10 @@ func _physics_process(delta):
 
 	# Handle Jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		gravity = 700
+		gravity = 1100
 		velocity.y = JUMP_VELOCITY
 	if Input.is_action_just_pressed("ui_up") and is_on_floor():
-		gravity = 700
+		gravity = 1100
 		velocity.y = JUMP_VELOCITY
 	if Input.is_action_just_pressed("ui_down"):
 		gravity = 3000

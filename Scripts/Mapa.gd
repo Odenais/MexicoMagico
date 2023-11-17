@@ -18,7 +18,7 @@ func _on_jugador_hit():
 
 func instanciar():
 	obs = int(randf_range(1,5))
-	x = int(randf_range(660,760))
+	x = int(randf_range(700,760))
 	var y: int
 	match obs:
 		1:
@@ -32,7 +32,7 @@ func instanciar():
 			y = 300
 		4:
 			obstaculo = obstaculo4
-			y = 290
+			y = 310
 	
 	var newObstaculo = obstaculo.instantiate()
 	add_child(newObstaculo)

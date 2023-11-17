@@ -47,5 +47,7 @@ func _on_transicion_animation_finished(anim_name):
 	get_tree().change_scene_to_packed(scene);
 
 func _on_button_2_pressed():
+	emit_signal("gameover")
+	get_tree().reload_current_scene();
 	scene = load("res://Escenas/map.tscn");
 	transition.play("fade_out");

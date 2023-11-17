@@ -189,6 +189,14 @@ theme_override_fonts/font = ExtResource("1_oqrvj")
 theme_override_font_sizes/font_size = 26
 text = "Salir"
 
+[node name="ButtonCreditos" type="Button" parent="Control/VBoxContainer/ButtonContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_oqrvj")
+theme_override_font_sizes/font_size = 26
+text = "Creditos"
+
 [node name="Transicion" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_nsh1a")
@@ -209,4 +217,5 @@ stream = ExtResource("5_xbv4x")
 
 [connection signal="pressed" from="Control/VBoxContainer/ButtonContainer/ButtonPlay" to="." method="_on_button_play_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/ButtonContainer/ButtonExit" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/ButtonContainer/ButtonCreditos" to="." method="_on_button_creditos_pressed"]
 [connection signal="animation_finished" from="Transicion" to="." method="_on_transicion_animation_finished"]

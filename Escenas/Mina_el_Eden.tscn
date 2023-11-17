@@ -180,12 +180,12 @@ fill = 1
 fill_from = Vector2(0.491453, 0.5)
 fill_to = Vector2(1, 0.034188)
 
-[sub_resource type="Gradient" id="Gradient_riduo"]
+[sub_resource type="Gradient" id="Gradient_5ijsx"]
 offsets = PackedFloat32Array(0, 0.964824, 1)
 colors = PackedColorArray(1, 1, 1, 0.854902, 1, 1, 1, 0.0194004, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_mmc2q"]
-gradient = SubResource("Gradient_riduo")
+gradient = SubResource("Gradient_5ijsx")
 fill = 1
 fill_from = Vector2(0.534188, 0.482906)
 fill_to = Vector2(0.418803, 0.747863)

@@ -13,16 +13,18 @@ size = Vector2(20, 120)
 script = ExtResource("1_glgpq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("2_j8udf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, -6)
+scale = Vector2(0.8, 0.8)
 shape = SubResource("CircleShape2D_rg2d3")
 
 [node name="Deteccion" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Deteccion"]
-position = Vector2(-1, -104)
+position = Vector2(0, -92)
 shape = SubResource("RectangleShape2D_7t8l2")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

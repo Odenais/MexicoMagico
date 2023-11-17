@@ -11,8 +11,9 @@ config_version=5
 [application]
 
 config/name="MexicoMagico"
-run/main_scene="res://Escenas/MenuPrincipal.tscn"
+run/main_scene="res://Escenas/Logo_carga.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
+boot_splash/bg_color=Color(0.141176, 0.141176, 0.141176, 1)
 config/icon="res://icon.svg"
 
 [autoload]
@@ -23,7 +24,9 @@ Global="*res://Global.gd"
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+window/size/mode=2
 window/size/resizable=false
+window/stretch/mode="viewport"
 
 [rendering]
 

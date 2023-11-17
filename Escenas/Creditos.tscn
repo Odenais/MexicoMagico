@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://busrfdocogs6c"]
+
+[ext_resource type="Script" path="res://Escenas/Creditos.gd" id="1_42873"]
+[ext_resource type="FontFile" uid="uid://covt2bip852x7" path="res://Assets/Fonts/04b_30/04B_30__.TTF" id="1_epmep"]
+[ext_resource type="Texture2D" uid="uid://dibej0u4h3lfy" path="res://Sprites/Assets_PixelAdventure/Menu/Buttons/Close.png" id="2_bg7gd"]
+
+[sub_resource type="Gradient" id="Gradient_ac3rk"]
+offsets = PackedFloat32Array(0, 0.946602, 0.990291, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.0324814, 0.0324814, 0.0324814, 1, 0.18932, 0.18932, 0.18932, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_arcff"]
+gradient = SubResource("Gradient_ac3rk")
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_42873")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(717, 536.5)
+scale = Vector2(23.4062, 17.7656)
+texture = SubResource("GradientTexture2D_arcff")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(474, 268)
+zoom = Vector2(1.4, 1.4)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 56.0
+offset_top = 32.0
+offset_right = 565.0
+offset_bottom = 126.0
+theme_override_fonts/font = ExtResource("1_epmep")
+theme_override_font_sizes/font_size = 90
+text = "LOMBAX
+"
+
+[node name="Button" type="Button" parent="."]
+texture_filter = 1
+offset_left = 860.0
+offset_top = 450.0
+offset_right = 883.0
+offset_bottom = 474.0
+scale = Vector2(3, 3)
+icon = ExtResource("2_bg7gd")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

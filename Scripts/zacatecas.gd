@@ -23,6 +23,9 @@ func _process(delta):
 	elif $ButtonPinos.is_hovered():
 		label.text = "Pinos fue fundado en 1594 con el nombre de Real de Nuestra Señora de Sierra de Pinos poco después de que el capitán mestizo (zacatecano) Miguel Caldera vislumbrara \"una magnífica oportunidad para explorar sus ricos suelos\"";
 		titulo.text = "Pinos"
+	elif $ButtonPuebla.is_hovered():
+		label.text = "Puebla, estado mexicano ubicado en el centro-sur del país, destaca por su rica historia y patrimonio cultural. La ciudad de Puebla, capital del estado, fue fundada en 1531 y su centro histórico es reconocido como Patrimonio de la Humanidad. Renombrada por su arquitectura colonial, la ciudad alberga joyas como la Catedral, la Capilla del Rosario y el Zócalo.";
+		titulo.text = "Puebla"
 		
 func _on_button_fresnillo_pressed():
 	transition.play("fade_out")
@@ -61,3 +64,7 @@ func _on_button_pinos_pressed():
 	transition.play("fade_out")
 	opc = "PINOS"
 	scene = preload("res://Escenas/Mapa.tscn");
+
+func _on_button_puebla_pressed():
+	transition.play("fade_out")
+	#scene = preload("res://Mapas/MapaPrincipal.tscn");

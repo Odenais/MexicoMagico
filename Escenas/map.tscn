@@ -679,6 +679,7 @@ _data = {
 }
 
 [node name="Mapa" type="Node2D"]
+position = Vector2(9, 3)
 script = ExtResource("1_k54c1")
 spawnTime = 2
 

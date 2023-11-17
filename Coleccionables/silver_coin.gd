@@ -6,6 +6,6 @@ func _process(delta):
 func _on_body_entered(body):
 	
 	if body.name == "Player":
-		Global.piedras += 1;
+		Global.coleccionables += 1;
 		
 		queue_free()

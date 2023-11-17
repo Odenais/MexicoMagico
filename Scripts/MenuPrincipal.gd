@@ -2,6 +2,7 @@ extends Node
 class_name Menu
 @onready var transition = $Transicion
 @onready var mex = preload("res://Escenas/Intro.tscn")
+@onready var cred = preload("res://Escenas/Creditos.tscn")
 
 var dir = Vector2(1,0)
 var speed = 60
@@ -20,3 +21,7 @@ func _on_button_pressed():
 
 func _on_transicion_animation_finished(anim_name):
 	get_tree().change_scene_to_packed(mex)
+
+
+func _on_button_creditos_pressed():
+	get_tree().change_scene_to_packed(cred)
